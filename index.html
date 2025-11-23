@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free QR Code Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Free QR Code Generator</h1>
+            <p>Create QR codes instantly for links and WhatsApp</p>
+        </header>
+
+        <div class="main-content">
+            <div class="input-section">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="link">🔗 Link/URL</button>
+                    <button class="tab-btn" data-tab="whatsapp">💬 WhatsApp</button>
+                </div>
+
+                <div class="tab-content">
+                    <!-- Link Tab -->
+                    <div class="tab-pane active" id="link-tab">
+                        <label for="link-input">Enter your URL:</label>
+                        <input type="text" id="link-input" placeholder="https://example.com" />
+                        <button class="generate-btn" onclick="generateQR('link')">Generate QR Code</button>
+                    </div>
+
+                    <!-- WhatsApp Tab -->
+                    <div class="tab-pane" id="whatsapp-tab">
+                        <label for="whatsapp-input">Enter WhatsApp Number (with country code):</label>
+                        <input type="tel" id="whatsapp-input" placeholder="+1234567890" />
+                        <label for="whatsapp-message">Pre-filled message (optional):</label>
+                        <textarea id="whatsapp-message" rows="3" placeholder="Hello! I found you on..."></textarea>
+                        <button class="generate-btn" onclick="generateQR('whatsapp')">Generate QR Code</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="qr-display">
+                <div id="qr-placeholder" class="placeholder">
+                    <p>👆 Select a type and generate your QR code</p>
+                </div>
+                <div id="qr-result" class="hidden">
+                    <div id="qr-canvas"></div>
+                    <div class="qr-actions">
+                        <button class="download-btn" onclick="downloadQR()">📥 Download QR Code</button>
+                        <button class="clear-btn" onclick="clearQR()">🔄 Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
